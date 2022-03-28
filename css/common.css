@@ -1,0 +1,21 @@
+:root {
+  --main-color: #02d4ae;
+}
+
+body {
+  font-family: 'Open Sans', serif;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  /* padding: 0 50px; */
+}
+
+@media screen and (max-width: 950px) {
+  /* taisykles kurios galioja nuo 0 iki 950px */
+  .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
