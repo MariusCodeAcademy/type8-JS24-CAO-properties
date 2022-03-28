@@ -6,6 +6,10 @@ body {
   font-family: 'Open Sans', serif;
 }
 
+button {
+  cursor: pointer;
+}
+
 .container {
   max-width: 900px;
   margin: 0 auto;
