@@ -41,6 +41,8 @@ function renderCard(cardObj) {
 
 async function deletePost(postId) {
   console.log('delete', postId);
+  const patvirtinimas = confirm('Ar tikrai norite istrinti?');
+  if (patvirtinimas === false) return;
   // DELETE  http://localhost:3003/api/posts/62429bc6f94300d1b8a1c8f1
   const resp = await fetch(`${baseUrl}/${postId}`, {
     method: 'DELETE',
