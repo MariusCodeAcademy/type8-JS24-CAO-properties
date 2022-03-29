@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Posts</title>
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css" /> -->
     <link rel="stylesheet" href="./css/style.css" />
     <script src="./js/addPosts.js" defer></script>
   </head>
@@ -20,6 +21,14 @@
       <div class="control">
         <a href="posts.html" class="btn-link">Back to posts</a>
       </div>
+
+      <form>
+        <input type="text" name="title" placeholder="Title" />
+        <input type="number" name="year" placeholder="Year" />
+        <input type="text" name="author" placeholder="Author" />
+        <textarea name="body" cols="30" rows="4" placeholder="Your text"></textarea>
+        <button class="btn-link">Create</button>
+      </form>
     </main>
   </body>
 </html>
