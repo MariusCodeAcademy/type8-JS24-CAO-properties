@@ -30,6 +30,7 @@ function renderCard(cardObj) {
       <p>${cardObj.body}</p>
       <hr />
       <p>${cardObj.author}</p>
+      <a href='edit-post.html?postId=${cardObj._id}'>Edit me</a>
     </div>
  `;
   const btnEl = document.createElement('button');
@@ -49,7 +50,7 @@ async function deletePost(postId) {
   });
   const dataInJs = await resp.json();
   console.log('dataInJs deletePost ===', dataInJs);
-  if (dataInJs.data.deleteCount === 1) {
+  if (dataInJs.data.deletedCount === 1) {
     // istrinta sekmingai
     getPosts();
   }
