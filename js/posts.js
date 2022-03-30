@@ -30,11 +30,12 @@ function renderCard(cardObj) {
       <p>${cardObj.body}</p>
       <hr />
       <p>${cardObj.author}</p>
-      <a href='edit-post.html?postId=${cardObj._id}'>Edit me</a>
+      <a class='f__btn' href='edit-post.html?postId=${cardObj._id}'>Edit me</a>
     </div>
  `;
   const btnEl = document.createElement('button');
   btnEl.textContent = 'delete me';
+  btnEl.className = 'f__btn';
   btnEl.addEventListener('click', () => deletePost(cardObj._id));
   divEl.append(btnEl);
   return divEl;
