@@ -1,3 +1,4 @@
+'use strict';
 const formEl = document.forms[0];
 // 1 pasiimti postId is query params
 
@@ -5,21 +6,13 @@ const postId = getQueryParam('postId');
 
 console.log('postId ===', postId);
 // 2 parissiusti posta su id is query params
-async function getSinglePost() {
-  // getSinglePost funkcijoje pabandyti isiusti uzklausa i baseUrl/postId ir paziureti ka gaunam atgal
-  const resp = await fetch(baseUrl + '/' + postId);
-  const dataInJs = await resp.json();
-  console.log('getSinglePost ===', dataInJs);
-  if (dataInJs.success === true) {
-    // surasti ir atspausdinti posta kurio id yra postId tarp
-    // dataInJs.data masyvo
-    // const foundPost = dataInJs.data.find((postObj) => postObj._id === postId);
-    // console.log('foundPost ===', foundPost);
-    const foundPost = dataInJs.data;
-    foundObjToFormValues(foundPost);
-  }
+
+async function init() {
+  const foundPost = await getSinglePost(postId);
+  foundObjToFormValues(foundPost);
 }
-getSinglePost();
+
+init();
 
 // 3 parsiusto posto duomeni supildyti i forma
 function foundObjToFormValues(postObj) {

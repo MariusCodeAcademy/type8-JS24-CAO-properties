@@ -30,7 +30,6 @@ function renderCard(cardObj) {
       <p>${cardObj.body}</p>
       <hr />
       <p>${cardObj.author}</p>
-      <a class='f__btn' href='edit-post.html?postId=${cardObj._id}'>Edit me</a>
       <a class='f__btn' href='single-post.html?postId=${cardObj._id}'>More info</a>
     </div>
  `;

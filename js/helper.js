@@ -1,3 +1,4 @@
+'use strict';
 const baseUrl = 'https://one-more-mca.herokuapp.com/api/posts';
 
 function getQueryParam(param) {
@@ -5,7 +6,7 @@ function getQueryParam(param) {
   return params.get(param);
 }
 
-async function getSinglePost(id) {
+const getSinglePost = async (id) => {
   const resp = await fetch(baseUrl + '/' + id);
   const dataInJs = await resp.json();
   // console.log('getSinglePost ===', dataInJs);
@@ -14,4 +15,4 @@ async function getSinglePost(id) {
     // foundObjToHtml(foundPost);
     return foundPost;
   }
-}
+};

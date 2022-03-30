@@ -18,11 +18,22 @@ formEl.addEventListener('submit', (event) => {
   const newPostObj = {};
   const members = ['title', 'year', 'author', 'body'];
   members.forEach((memb) => {
-    newPostObj[memb] = formEl.elements[memb].value;
+    newPostObj[memb] = formEl.elements[memb].value.trim();
   });
-  // const newPostObjTitle = {
-  //   [members[0]]: formEl.elements[members[0]].value,
-  // };
+
+  // ar ivesta kazkas i title?
+  if (newPostObj.title === '') {
+    console.log('iveskite title');
+    formEl.elements.title.style.backgroundColor = 'tomato';
+    formEl.elements.title.insertAdjacentHTML('afterend', '<span>Privalomas laukas</span>');
+    return;
+  }
+  if (newPostObj.title.length < 5) {
+    console.log('per trumpas title');
+    formEl.elements.title.style.backgroundColor = 'tomato';
+    formEl.elements.title.insertAdjacentHTML('afterend', '<span>per trumpas title</span>');
+    return;
+  }
 
   console.log('newPostObj ===', newPostObj);
 
