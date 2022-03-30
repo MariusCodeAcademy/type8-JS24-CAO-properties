@@ -1,4 +1,3 @@
-const baseUrl = 'https://one-more-mca.herokuapp.com/api/posts';
 const formEl = document.forms[0];
 // 1 pasiimti postId is query params
 
