@@ -2,10 +2,7 @@ const baseUrl = 'https://one-more-mca.herokuapp.com/api/posts';
 const formEl = document.forms[0];
 // 1 pasiimti postId is query params
 
-const params = new URLSearchParams(window.location.search);
-const postId = params.get('postId');
-// function getQueryParam(param) {}
-// const postId = getQueryParam('postId');
+const postId = getQueryParam('postId');
 
 console.log('postId ===', postId);
 // 2 parissiusti posta su id is query params
