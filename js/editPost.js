@@ -10,14 +10,16 @@ const postId = params.get('postId');
 console.log('postId ===', postId);
 // 2 parissiusti posta su id is query params
 async function getSinglePost() {
-  const resp = await fetch(baseUrl);
+  // getSinglePost funkcijoje pabandyti isiusti uzklausa i baseUrl/postId ir paziureti ka gaunam atgal
+  const resp = await fetch(baseUrl + '/' + postId);
   const dataInJs = await resp.json();
   console.log('getSinglePost ===', dataInJs);
   if (dataInJs.success === true) {
     // surasti ir atspausdinti posta kurio id yra postId tarp
     // dataInJs.data masyvo
-    const foundPost = dataInJs.data.find((postObj) => postObj._id === postId);
+    // const foundPost = dataInJs.data.find((postObj) => postObj._id === postId);
     // console.log('foundPost ===', foundPost);
+    const foundPost = dataInJs.data;
     foundObjToFormValues(foundPost);
   }
 }
@@ -45,10 +47,24 @@ formEl.addEventListener('submit', (e) => {
   });
 
   console.log('editedPostObj ===', editedPostObj);
-  updatePost(editedPostObj);
+  updatePost(editedPostObj, postId);
 });
 
-async function updatePost(postObj) {}
+async function updatePost(postObj, id) {
+  const fetchOptions = {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(postObj),
+  };
+  const resp = await fetch(`${baseUrl}/${id}`, fetchOptions);
+  const dataInJS = await resp.json();
+  console.log('dataInJS ===', dataInJS);
+  if (dataInJS.success === true) {
+    window.location.href = 'posts.html';
+  }
+}
 // su PUT metodu
 // PUT https://one-more-mca.herokuapp.com/api/posts/62416561f0048a09af8b471b
 // {
