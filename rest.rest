@@ -1,0 +1,16 @@
+GET  https://one-more-mca.herokuapp.com/api/posts/6243ec9e13e9b6637f4c703c
+
+### rest client
+GET  https://one-more-mca.herokuapp.com/api/posts/
+
+###
+
+POST https://one-more-mca.herokuapp.com/api/posts
+Content-Type: application/json
+
+{
+  "title": "Post about JS",
+  "author": "James",
+  "body": "Body of post About JS",
+  "year": 2005
+}
