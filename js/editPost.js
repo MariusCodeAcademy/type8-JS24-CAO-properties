@@ -29,11 +29,7 @@ function foundObjToFormValues(postObj) {
 formEl.addEventListener('submit', (e) => {
   e.preventDefault();
 
-  const editedPostObj = {};
-  const members = ['title', 'year', 'author', 'body'];
-  members.forEach((memb) => {
-    editedPostObj[memb] = formEl.elements[memb].value;
-  });
+  const editedPostObj = getFormInputsToObj(formEl, ['title', 'year', 'author', 'body']);
 
   console.log('editedPostObj ===', editedPostObj);
   updatePost(editedPostObj, postId);

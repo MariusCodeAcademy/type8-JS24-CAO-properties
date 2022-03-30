@@ -16,3 +16,12 @@ const getSinglePost = async (id) => {
     return foundPost;
   }
 };
+
+function getFormInputsToObj(formEl, formInputsArr) {
+  const newObj = {};
+  // const members = ['title', 'year', 'author', 'body'];
+  formInputsArr.forEach((memb) => {
+    newObj[memb] = formEl.elements[memb].value;
+  });
+  return newObj;
+}

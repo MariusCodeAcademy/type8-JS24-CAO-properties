@@ -1,9 +1,8 @@
 console.log('addPosts');
-const baseUrl = 'https://one-more-mca.herokuapp.com/api/posts';
 
 // formos el
 const formEl = document.forms[0];
-
+const errors = {};
 formEl.addEventListener('submit', (event) => {
   event.preventDefault();
 
@@ -15,21 +14,19 @@ formEl.addEventListener('submit', (event) => {
   //   author: formEl.elements.author.value,
   //   body: formEl.elements.body.value,
   // };
-  const newPostObj = {};
-  const members = ['title', 'year', 'author', 'body'];
-  members.forEach((memb) => {
-    newPostObj[memb] = formEl.elements[memb].value.trim();
-  });
+  const newPostObj = getFormInputsToObj(formEl, ['title', 'year', 'author', 'body']);
 
   // ar ivesta kazkas i title?
   if (newPostObj.title === '') {
     console.log('iveskite title');
+    errors.title = 'iveskite title';
     formEl.elements.title.style.backgroundColor = 'tomato';
     formEl.elements.title.insertAdjacentHTML('afterend', '<span>Privalomas laukas</span>');
     return;
   }
   if (newPostObj.title.length < 5) {
     console.log('per trumpas title');
+    errors.title += 'per trumpas title';
     formEl.elements.title.style.backgroundColor = 'tomato';
     formEl.elements.title.insertAdjacentHTML('afterend', '<span>per trumpas title</span>');
     return;
